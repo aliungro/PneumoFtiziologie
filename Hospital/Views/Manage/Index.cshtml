@@ -1,0 +1,33 @@
+﻿@model Hospital.Models.IndexViewModel
+@{
+    ViewBag.Title = "Setări";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Schimbați setările contului.</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Parolă</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Schimbați parola", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Creează", "SetPassword")
+            }
+            ]
+        </dd>
+        <dt>Loginuri externe:</dt>
+        <dd>
+            @Model.Logins.Count [
+            @Html.ActionLink("Vizualizare", "ManageLogins") ]
+        </dd>
+
+    </dl>
+</div>
